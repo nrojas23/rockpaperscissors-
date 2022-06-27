@@ -8,16 +8,37 @@
   <script>
     // Your JavaScript goes here 
     // create a function that randomly select rock, paper, scissors
+
         //Question: is it better to use a function with/out parameter? 
     function computerPlay(){
         const moveSet = ['Rock' , 'Paper' , 'Scissors']
         // i dont understand this code 
         const move = moveSet[Math.floor(Math.random() * moveSet.length)]
-console.log(move) 
-    };
-    // create a function that plays one round 
-    function singleRound(playerSelection) {
-        };
+        return move;
+     };
+
+       // create a function that plays one round 
+    function singleRound(playerSelection, computerSelection) {
+      // declares the winner 
+      //Question: is var player really a constant?
+       const player = 
+          playerSelection == 'Rock' && computerSelection == 'Scissors' 
+          || playerSelection == 'Paper' && computerSelection == 'Rock' 
+          || playerSelection == 'Scissors' && computerSelection == 'Paper' 
+          ? 'Player Wins!' : 'Player Lost :(';
+       return player;
+       /* alternative to player test 
+        if (playerSelection == 'Rock' && computerSelection == 'Scissors' || playerSelection == 'Paper' && computerSelection == 'Rock' 
+          || playerSelection == 'Scissors' && computerSelection == 'Paper' ) { 'Player Wins';
+       } else { 'You Lose';}
+       return playerSelection;
+       */
+     };
+
+    const playerSelection = 'Rock';
+    const computerSelection = computerPlay();
+    console.log(computerSelection);
+    console.log( singleRound(playerSelection,computerSelection));
     // create a function that plays 5 rounds and declares the winner 
   </script>
 </body>
