@@ -20,19 +20,16 @@
        // create a function that plays one round 
     function singleRound(playerSelection, computerSelection) {
       // declares the winner 
-      //Question: is var player really a constant?
-       const player = 
-          playerSelection == 'Rock' && computerSelection == 'Scissors' 
+      //Question: is var player really a constant? 
+         const player = playerSelection == 'Rock' && computerSelection == 'Scissors' 
           || playerSelection == 'Paper' && computerSelection == 'Rock' 
-          || playerSelection == 'Scissors' && computerSelection == 'Paper' 
-          ? 'Player Wins!' : 'Player Lost :(';
-       return player;
-       /* alternative to player test 
-        if (playerSelection == 'Rock' && computerSelection == 'Scissors' || playerSelection == 'Paper' && computerSelection == 'Rock' 
-          || playerSelection == 'Scissors' && computerSelection == 'Paper' ) { 'Player Wins';
-       } else { 'You Lose';}
-       return playerSelection;
-       */
+          || playerSelection == 'Scissors' && computerSelection == 'Paper' ? 'Player Wins!' 
+          :  playerSelection == 'Rock' && computerSelection == 'Rock' 
+          || playerSelection == 'Paper' && computerSelection == 'Paper'
+          || playerSelection == 'Scissors' && computerSelection == 'Scissors' ? 'it is a tie!'
+          : 'Player Lost :(';
+
+       return player; 
      };
 
     const playerSelection = 'Rock';
