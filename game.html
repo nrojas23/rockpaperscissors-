@@ -23,11 +23,11 @@
       //Question: is var player really a constant? 
          const player = playerSelection == 'Rock' && computerSelection == 'Scissors' 
           || playerSelection == 'Paper' && computerSelection == 'Rock' 
-          || playerSelection == 'Scissors' && computerSelection == 'Paper' ? 'Player Wins!' 
+          || playerSelection == 'Scissors' && computerSelection == 'Paper' ? `Player Wins! ${playerSelection} beats ${computerSelection}` 
           :  playerSelection == 'Rock' && computerSelection == 'Rock' 
           || playerSelection == 'Paper' && computerSelection == 'Paper'
           || playerSelection == 'Scissors' && computerSelection == 'Scissors' ? 'it is a tie!'
-          : 'Player Lost :(';
+          : `Player Lost! ${computerSelection} beats ${playerSelection}`;
 
        return player; 
      };
