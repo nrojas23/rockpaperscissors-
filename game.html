@@ -6,37 +6,53 @@
 <body>
   
   <script>
-    // Your JavaScript goes here 
     // create a function that randomly select rock, paper, scissors
 
-        //Question: is it better to use a function with/out parameter? 
+    //Question: is it better to use a function with/out parameter? 
+    //Question: How to name variables? 
     function computerPlay(){
-        const moveSet = ['Rock' , 'Paper' , 'Scissors']
+        const moveSet = ['rock' , 'paper' , 'scissors']
         // i dont understand this code 
         const move = moveSet[Math.floor(Math.random() * moveSet.length)]
+
         return move;
      };
 
-       // create a function that plays one round 
-    function singleRound(playerSelection, computerSelection) {
-      // declares the winner 
-      //Question: is var player really a constant? 
-         const player = playerSelection == 'Rock' && computerSelection == 'Scissors' 
-          || playerSelection == 'Paper' && computerSelection == 'Rock' 
-          || playerSelection == 'Scissors' && computerSelection == 'Paper' ? `Player Wins! ${playerSelection} beats ${computerSelection}` 
-          :  playerSelection == 'Rock' && computerSelection == 'Rock' 
-          || playerSelection == 'Paper' && computerSelection == 'Paper'
-          || playerSelection == 'Scissors' && computerSelection == 'Scissors' ? 'it is a tie!'
+     
+
+     // create a function that plays one round 
+    function playRound(playerSelection, computerSelection) {
+        // removes case sensitvity 
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
+       //Question: is var player really a constant? 
+         const player = playerSelection == 'rock' && computerSelection == 'scissors' 
+          || playerSelection == 'paper' && computerSelection == 'rock' 
+          || playerSelection == 'scissors' && computerSelection == 'paper' ? `Player Wins! ${playerSelection} beats ${computerSelection}` 
+          :  playerSelection == computerSelection ? `It's a tie!`
           : `Player Lost! ${computerSelection} beats ${playerSelection}`;
 
-       return player; 
-     };
+         return player; 
+      };
 
-    const playerSelection = 'Rock';
-    const computerSelection = computerPlay();
-    console.log(computerSelection);
-    console.log( singleRound(playerSelection,computerSelection));
     // create a function that plays 5 rounds and declares the winner 
+  
+   for (let i = 0; i < 5; i++) {
+
+     
+
+      if (i <= 5) {
+        let playerSelection = prompt('rock, paper, scissors?');
+        
+        let computerSelection = computerPlay();
+      
+        let rounds = playRound(playerSelection,computerSelection);
+
+        console.log(rounds); 
+      }
+    
+    }
+    
   </script>
 </body>
 </html>
