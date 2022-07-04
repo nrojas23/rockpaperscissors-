@@ -6,11 +6,10 @@
 <body>
   
   <script>
-    // create a function that randomly select rock, paper, scissors
-
     //Question: is it better to use a function with/out parameter? 
     //Question: How to name variables? 
     function computerPlay(){
+        //randomly select rock, paper, scissors for pc
         const moveSet = ['rock' , 'paper' , 'scissors']
         // i dont understand this code 
         const move = moveSet[Math.floor(Math.random() * moveSet.length)]
@@ -18,14 +17,11 @@
         return move;
      };
 
-     
-
-     // create a function that plays one round 
-    function playRound(playerSelection, computerSelection) {
+    function singleRound(playerSelection, computerSelection) {
         // removes case sensitvity 
         playerSelection = playerSelection.toLowerCase();
         computerSelection = computerSelection.toLowerCase();
-       //Question: is var player really a constant? 
+        // plays one round 
          return playerSelection == 'rock' && computerSelection == 'scissors' 
           || playerSelection == 'paper' && computerSelection == 'rock' 
           || playerSelection == 'scissors' && computerSelection == 'paper' ? `Player Wins! ${playerSelection} beats ${computerSelection}` 
@@ -34,34 +30,44 @@
           : `Player Lost! ${computerSelection} beats ${playerSelection}`; 
       };
 
-    // create a function that plays 5 rounds and declares the winner 
-    let playerPoints = 0;
-    let pcPoints = 0;
-  
-   for (let i = 0; i < 5; i++) {
+      let playerPoints = 0;
+      let pcPoints = 0;
 
-     
+    function game() {
+        // plays the game for five rounds
+        for (let i = 0; i < 5; i++) {
 
-      if (i <= 5) {
-        let playerSelection = prompt('rock, paper, scissors?');
-        
-        let computerSelection = computerPlay();
-      
-        let rounds = playRound(playerSelection,computerSelection);
+          if (i <= 5) {
+            let playerSelection = prompt('rock, paper, scissors?');
+            
+            let computerSelection = computerPlay();
 
-        if (rounds === `Player Wins! ${playerSelection} beats ${computerSelection}`) {
-          playerPoints++;
-        } else if (rounds === `Player Lost! ${computerSelection} beats ${playerSelection}`) {
-          pcPoints++;
-        } else {
-          playerPoints;
-          pcPoints;
+            let rounds = singleRound(playerSelection,computerSelection);
+
+            // counts the points of rounds
+            if (rounds === `Player Wins! ${playerSelection} beats ${computerSelection}`) {
+              playerPoints++;
+            } else if (rounds === `Player Lost! ${computerSelection} beats ${playerSelection}`) {
+              pcPoints++;
+            } else {
+              playerPoints;
+              pcPoints;
+            }
+              console.log(rounds);
+          }
+           
         }
-        console.log(pcPoints);
-        console.log(rounds); 
-      }
-    
-    }
+
+        if (playerPoints > pcPoints){ console.log ('Player Wins the Game!') 
+      } else {console.log ('Better Luck Next Time')}
+
+      };
+
+
+    game();
+
+   
+     
     
   </script>
 </body>
