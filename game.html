@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page Title</title>
+</head>
+<body>
+  
+  <script>
+    
+    function computerPlay(){
+        
+        const moveSet = ['rock' , 'paper' , 'scissors'];
+        
+        const move = moveSet[Math.floor(Math.random() * moveSet.length)];
+
+        return move;
+     };
+
+    function singleRound(playerSelection, computerSelection) {
+         
+        playerSelection = playerSelection.toLowerCase();
+        computerSelection = computerSelection.toLowerCase();
+       
+         return playerSelection == 'rock' && computerSelection == 'scissors' 
+          || playerSelection == 'paper' && computerSelection == 'rock' 
+          || playerSelection == 'scissors' && computerSelection == 'paper' ? `Player Wins! ${playerSelection} beats ${computerSelection}` 
+          : playerSelection == null || playerSelection == '' ? 'Please try again'
+          :  playerSelection == computerSelection ? `It's a tie!`
+          : `Player Lost! ${computerSelection} beats ${playerSelection}`; 
+      };
+
+      let playerPoints = 0;
+      let pcPoints = 0;
+
+    function game() {
+        // plays the game for five rounds
+        for (let i = 0; i < 5; i++) {
+
+          if (i <= 5) {
+            let playerSelection = prompt('rock, paper, scissors?');
+            
+            let computerSelection = computerPlay();
+
+            let rounds = singleRound(playerSelection,computerSelection);
+
+            // counts the points of rounds
+            if (rounds === `Player Wins! ${playerSelection} beats ${computerSelection}`) {
+              playerPoints++;
+            } else if (rounds === `Player Lost! ${computerSelection} beats ${playerSelection}`) {
+              pcPoints++;
+            } else {
+              playerPoints;
+              pcPoints;
+            }
+              console.log(rounds);
+          }
+           
+        }
+        
+        // declares the winner of the game 
+        if (playerPoints > pcPoints){console.log ('Player Wins the Game!')
+          } else if (playerPoints < pcPoints ){console.log ('Better Luck Next Time')
+          } else {'Good Match! Tie'}
+
+      };
+
+
+    game();
+
+   
+     
+    
+  </script>
+</body>
+</html>
