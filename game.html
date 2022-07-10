@@ -6,22 +6,21 @@
 <body>
   
   <script>
-    //Question: is it better to use a function with/out parameter? 
-    //Question: How to name variables? 
+    
     function computerPlay(){
-        //randomly select rock, paper, scissors for pc
-        const moveSet = ['rock' , 'paper' , 'scissors']
-        // i dont understand this code 
-        const move = moveSet[Math.floor(Math.random() * moveSet.length)]
+        
+        const moveSet = ['rock' , 'paper' , 'scissors'];
+        
+        const move = moveSet[Math.floor(Math.random() * moveSet.length)];
 
         return move;
      };
 
     function singleRound(playerSelection, computerSelection) {
-        // removes case sensitvity 
+         
         playerSelection = playerSelection.toLowerCase();
         computerSelection = computerSelection.toLowerCase();
-        // plays one round 
+       
          return playerSelection == 'rock' && computerSelection == 'scissors' 
           || playerSelection == 'paper' && computerSelection == 'rock' 
           || playerSelection == 'scissors' && computerSelection == 'paper' ? `Player Wins! ${playerSelection} beats ${computerSelection}` 
@@ -57,9 +56,11 @@
           }
            
         }
-
-        if (playerPoints > pcPoints){ console.log ('Player Wins the Game!') 
-      } else {console.log ('Better Luck Next Time')}
+        
+        // declares the winner of the game 
+        if (playerPoints > pcPoints){console.log ('Player Wins the Game!')
+          } else if (playerPoints < pcPoints ){console.log ('Better Luck Next Time')
+          } else {'Good Match! Tie'}
 
       };
 
